@@ -25,10 +25,9 @@ try:
 except:
     pass
 
-# Wait until sensor is ready to read data
+# Wait until reading is not ready
 try:
-    while not sensor.read_data_ready_flag():
-        time.sleep(0.25)
+    sensor.read_data_ready_flag()
 except:
     pass
 
@@ -39,16 +38,16 @@ try:
     while True:
         # Read measured values
         try:
-            sensor.read_measured_values()
+            print(sensor.read_measured_values())
 
-            print(f"PM1.0: {sensor.dict_values['pm1p0']} µg/m³")
-            print(f"PM2.5: {sensor.dict_values['pm2p5']} µg/m³")
-            print(f"PM4.0: {sensor.dict_values['pm4p0']} µg/m³")
-            print(f"PM10.0: {sensor.dict_values['pm10p0']} µg/m³: ")
-            print(f"NC1.0: {sensor.dict_values['nc1p0']} particles/cm³")
-            print(f"NC2.5: {sensor.dict_values['nc2p5']} particles/cm³")
-            print(f"NC4.0: {sensor.dict_values['nc4p0']} particles/cm³")
-            print(f"NC10.0: {sensor.dict_values['nc10p0']} particles/cm³")
+            print(f"PM1.0: {sensor.dict_values['pm1p0']} µg/m3")
+            print(f"PM2.5: {sensor.dict_values['pm2p5']} µg/m3")
+            print(f"PM4.0: {sensor.dict_values['pm4p0']} µg/m3")
+            print(f"PM10.0: {sensor.dict_values['pm10p0']} µg/m3: ")
+            print(f"NC1.0: {sensor.dict_values['nc1p0']} particles/cm3")
+            print(f"NC2.5: {sensor.dict_values['nc2p5']} particles/cm3")
+            print(f"NC4.0: {sensor.dict_values['nc4p0']} particles/cm3")
+            print(f"NC10.0: {sensor.dict_values['nc10p0']} particles/cm3")
             print(f"Typical Particle Size: {sensor.dict_values['typical']} µm")
         except:
             pass
