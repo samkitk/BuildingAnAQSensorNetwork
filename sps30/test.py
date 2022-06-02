@@ -1,11 +1,11 @@
-#! /usr/bin/python3
+#! ../.venv/bin/python3
 # -*- coding: utf-8 -*-
 
 import sps30
 import time
 
 # Connect to sensor on I2C address 0x69
-sensor = sps30.SPS30(4)
+sensor = sps30.SPS30(1)
 
 # Set auto-cleaning interval to default value
 try:
@@ -38,17 +38,9 @@ try:
     while True:
         # Read measured values
         try:
-            print(sensor.read_measured_values())
+            sensor.read_measured_values()
 
-            print(f"PM1.0: {sensor.dict_values['pm1p0']} µg/m3")
-            print(f"PM2.5: {sensor.dict_values['pm2p5']} µg/m3")
-            print(f"PM4.0: {sensor.dict_values['pm4p0']} µg/m3")
-            print(f"PM10.0: {sensor.dict_values['pm10p0']} µg/m3: ")
-            print(f"NC1.0: {sensor.dict_values['nc1p0']} particles/cm3")
-            print(f"NC2.5: {sensor.dict_values['nc2p5']} particles/cm3")
-            print(f"NC4.0: {sensor.dict_values['nc4p0']} particles/cm3")
-            print(f"NC10.0: {sensor.dict_values['nc10p0']} particles/cm3")
-            print(f"Typical Particle Size: {sensor.dict_values['typical']} µm")
+            print(sensor.dict_values)
         except:
             pass
 
